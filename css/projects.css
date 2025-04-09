@@ -1,0 +1,139 @@
+
+/* Header - Aligns logo left and centers navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 20px;
+}
+
+
+
+
+/* Active link styling */
+.nav-link.active {
+    background-color: #f39c12 !important; /* Highlight color */
+    color: #000 !important; /* Black text */
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Adjust mobile navbar spacing */
+.offcanvas-body .nav-link {
+    padding: 10px;
+}
+
+/* Navbar Toggle Button (Hamburger) */
+.navbar-toggler {
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Center Navbar */
+@media (min-width: 992px) { 
+    .navbar-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+/* Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Remove text decoration from links */
+.service-item {
+    text-decoration: none; /* Removes any underline */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Project Image - Full Fit */
+.project-image {
+    width: 100%;
+    height: 250px; /* Increase height */
+    object-fit: cover; /* Ensures the image fits properly */
+    display: block;
+}
+
+/* Title Box - No Extra Space */
+.project-title {
+    font-size: 1.3rem; /* Slightly bigger text */
+    font-weight: bold;
+    color: black;
+    background: rgb(164, 164, 164);
+    width: 100%;
+    text-align: center;
+    padding: 18px 0; /* Adjust height */
+    margin: 0; /* Remove unnecessary spacing */
+    position: relative;
+    display: block;
+    text-decoration: none; /* Ensures no underline */
+}
+
+/* Fix for unwanted underline */
+.project-title a {
+    text-decoration: none;
+    color: inherit; /* Keeps the text color */
+}
+
+
+/* Title Hover Effect */
+.service-item:hover .project-title {
+    background: #f39c12;
+    color: black;
+}
+
+
+/* Ensures text is well-spaced */
+.container h3 {
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.container p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Mobile-friendly: Stacks vertically on small screens */
+@media (max-width: 768px) {
+    .row.text-center .col-md-4 {
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Footer Styling */
+footer {
+    text-align: center;
+}
+
+/* Footer Navigation Links */
+.footer-links a {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #ddd;
+    border-bottom: 2px solid #fff;
+}
+
+/* Footer Line */
+.footer-line {
+    border-top: 4px solid #ff0000;
+    margin-top: 10px;
+}

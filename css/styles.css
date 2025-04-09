@@ -1,0 +1,342 @@
+
+/* Header - Aligns logo left and centers navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 20px;
+}
+
+
+/* Active link styling */
+.nav-link.active {
+    background-color: #f39c12 !important; /* Highlight color */
+    color: #000 !important; /* Black text */
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Adjust mobile navbar spacing */
+.offcanvas-body .nav-link {
+    padding: 10px;
+}
+
+/* Navbar Toggle Button (Hamburger) */
+.navbar-toggler {
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Center Navbar */
+@media (min-width: 992px) { 
+    .navbar-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Service Card Styling */
+.service-item {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Hover Effect */
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Image */
+.project-image {
+    width: 100%;
+    height: 80%; /* Leaves space for the title */
+    object-fit: cover;
+    display: block;
+}
+
+/* Project Title */
+.project-title {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Hover Effect for Title */
+.service-item:hover .project-title {
+    background: #f39c12;
+    color: #000;
+}
+
+/* Full-screen Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Ensures image covers entire area */
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Covers the screen without stretching */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Dark overlay for better text visibility */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Centered text on top of the image */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Responsive text size */
+.hero-text h1 {
+    font-size: 3rem;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 100vh; /* Keep full height */
+    }
+
+    .hero-image {
+        object-fit: cover; /* Covers mobile screen properly */
+    }
+
+    .hero-text {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Ensures text is well-spaced */
+.container h3 {
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.container p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Mobile-friendly: Stacks vertically on small screens */
+@media (max-width: 768px) {
+    .row.text-center .col-md-4 {
+        margin-bottom: 30px;
+    }
+}
+
+/* Service Section with Rainbow Border */
+.service-section {
+    position: relative;
+    background: url('images/services-bg.jpg') no-repeat center center/cover;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 8px solid transparent;
+    border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    border-image-slice: 1;
+}
+
+/* Projects Section with Rainbow Border */
+.projects-section {
+    position: relative;
+    background: url('images/projects-bg.jpg') no-repeat center center/cover;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 8px solid transparent;
+    border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    border-image-slice: 1;
+}
+
+/* Section Overlay */
+.service-overlay, .projects-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Section Content */
+.service-content, .projects-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+/* Rainbow Line Between Sections */
+.rainbow-line {
+    height: 8px;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    margin: 20px 0;
+}
+
+/* Adjust Icon Size */
+.section-icon {
+    width: 80px;  /* Adjust the width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto 15px; /* Center align */
+}
+
+/* Optional: Add animation for hover effect */
+.section-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-banner {
+    background: url('../images/about-banner.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px; /* Adjust height as needed */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-title {
+    position: absolute;
+    top: 50%; /* Centers title vertically */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ensures exact centering */
+    color: white; /* Ensure contrast */
+    font-size: 2.5rem; /* Adjust size as needed */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Improves readability */
+}
+
+
+
+/* Footer Styling */
+footer {
+    text-align: center;
+}
+
+/* Footer Navigation Links */
+.footer-links a {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #ddd;
+    border-bottom: 2px solid #fff;
+}
+
+/* Footer Line */
+.footer-line {
+    border-top: 4px solid #ff0000;
+    margin-top: 10px;
+}
+
+/* Social Icons */
+.social-icons img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.contact-box {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
+    transition: 0.3s;
+}
+.contact-box:hover {
+    background-color: #e9ecef;
+}
+.email-box { border: 2px solid #dc3545; }
+.phone-box { border: 2px solid #28a745; }
+.address-box { border: 2px solid #007bff; }
+.contact-icon { font-size: 2rem; }
+/* Responsive: Centering on Mobile */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        margin-top: 10px;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+}
