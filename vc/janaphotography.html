@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../vc/images/janaphotography/logo.png" type="image/x-icon" />
+  <title>JanaPhotography</title>
+  <link rel="stylesheet" href="../vc/css/janaphotography/styles.css" />
+</head>
+<body>
+  <div class="floating-menu">
+    <!-- Floating options go above the button -->
+    <div class="floating-options" id="floatingOptions">
+      <a href="https://wa.me/918248864039" class="float-btn" title="WhatsApp">
+        <img src="../vc/images/janaphotography/whatsapp.png" alt="WhatsApp" />
+      </a>
+      <a href="tel:+918248864039" class="float-btn" title="Call1">
+        <img src="../vc/images/janaphotography/phone.png" alt="Call1" />
+      </a>
+    </div>
+  
+    <!-- Main toggle button -->
+    <button class="main-button" onclick="toggleFloatingMenu()">
+      <img src="../vc/images/janaphotography/messenger.png" alt="Menu" />
+    </button>
+  </div>
+  
+  
+  <div class="contact-container">
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <img src="../vc/images/janaphotography/logo.png" alt="JanaPhotography" class="logo" />
+      <img src="../vc/images/janaphotography/logo-font.png" alt="JanaPhotography" class="company-name-img" />
+      
+      <p class="tagline">
+        Our Services<br>
+        <span class="services">
+          Pre & Post Wedding Films | Cinematic Wedding Photography | Baby Photography | Family Portraits | Products/Fashion Shoots | Corporate Events
+        </span>
+      </p>
+      
+      
+
+      
+      <!-- Contact Links Grid -->
+      <div class="contact-grid">
+
+        <a href="https://storiesfromjanaphotography.com/" aria-label="Website">
+          <img src="../vc/images/janaphotography/web.png" alt="Website" style="width: 30px; height: 30px; margin-right: 8px;" />
+          Website
+        </a>
+        
+        <a href="https://maps.app.goo.gl/PGBeKybr3gPvzjHP7" aria-label="Review">
+          <img src="../vc/images/janaphotography/location.png" alt="Review" style="width: 30px; height: 30px; margin-right: 8px;" />
+          Location
+        </a>
+
+        <a href="https://www.youtube.com/@Storiesfromjanaphotography" aria-label="Youtube">
+          <img src="../vc/images/janaphotography/youtube.png" alt="Youtube" style="width: 30px; height: 30px; margin-right: 8px;" />
+          Youtube
+        </a>
+
+        <a href="https://www.instagram.com/jana_photography_jp/" aria-label="Instagram">
+          <img src="../vc/images/janaphotography/instagram.png" alt="Instagram" style="width: 30px; height: 30px; margin-right: 8px;" />
+          Instagram
+        </a>
+
+        <a href="https://www.facebook.com/momentstudio.momentstudio" aria-label="Facebook">
+          <img src="../vc/images/janaphotography/facebook.png" alt="Facebook" style="width: 30px; height: 30px; margin-right: 8px;" />
+          Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    Powered by <a href="https://vhass.co.in" target="_blank" rel="noopener noreferrer">VHASS</a>
+  </footer>
+</body>
+<script>
+  // Get the floating menu and the button to toggle it
+  const floatingMenu = document.querySelector('.floating-options');
+  const mainButton = document.querySelector('.main-button');
+
+  // Toggle the menu on button click
+  mainButton.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent the click event from bubbling up
+    floatingMenu.classList.toggle('show');
+  });
+
+  // Close the menu if clicked anywhere outside of the floating menu or button
+  document.addEventListener('click', (event) => {
+    if (!floatingMenu.contains(event.target) && !mainButton.contains(event.target)) {
+      floatingMenu.classList.remove('show');
+    }
+  });
+
+  // Close the menu when scrolling
+  window.addEventListener('scroll', () => {
+    floatingMenu.classList.remove('show');
+  });
+
+  // Close the menu when any touch move event occurs
+  window.addEventListener('touchmove', () => {
+    floatingMenu.classList.remove('show');
+  });
+
+  // Close the menu when the user starts touching anywhere on the page
+  window.addEventListener('touchstart', () => {
+    floatingMenu.classList.remove('show');
+  });
+</script>
+
+
+</html>
