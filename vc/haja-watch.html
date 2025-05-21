@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../vc/images/haja-watch/logo.webp" type="image/x-icon" />
+  <title>Haja Watches & Mobiles</title>
+  <link rel="stylesheet" href="../vc/css/haja-watch/styles.css" />
+</head>
+<body>
+
+ <div class="floating-menu">
+    <!-- Floating options go above the button -->
+    <div class="floating-options" id="floatingOptions">
+      <a href="tel:+917010227118" class="float-btn" title="Call">
+        <img src="../vc/images/haja-watch/logo.webp" alt="Call" />
+      </a>
+      <a href="tel:+919842643840" class="float-btn" title="Call">
+        <img src="../vc/images/haja-watch/logo.webp" alt="Call" />
+      </a>
+    </div>
+    
+    <!-- Main toggle button -->
+    <button class="main-button" onclick="toggleFloatingMenu()">
+      <img src="../vc/images/haja-watch/call.webp" alt="Call-Menu" />
+    </button>
+  </div>
+  
+  <div class="contact-container">
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <img src="../vc/images/haja-watch/logo-text.webp" alt="Haja-Watches-&-Mobiles" class="company-name-img" />
+      
+      <p class="tagline">
+        Our Services<br>
+        <span class="services">
+            All Types Of Watches Sales and Services | Mobile Sales And Services | Premium Watches | Mobile Recharge | All Types Of Mobile Accessories
+        </span>
+      </p>
+      
+      <!-- Contact Links Grid -->
+      <div class="contact-grid">
+
+        <a href="https://g.co/kgs/7375Usr" aria-label="Review">
+          <img src="../vc/images/haja-watch/review.webp" alt="Review" style="width: 30px; height: 30px; margin-right: 8px;" />
+          Review
+        </a>
+        
+        <a href="https://maps.app.goo.gl/u1d1fuh5L1BfkW2T6 " aria-label="Location">
+          <img src="../vc/images/haja-watch/location.webp" alt="Location" style="width: 30px; height: 30px; margin-right: 8px;" />
+          Location
+        </a>
+
+        <a href="https://wa.me/+917010227118" aria-label="WhatsApp">
+          <img src="../vc/images/haja-watch/whatsapp.webp" alt="WhatsApp" style="width: 30px; height: 30px; margin-right: 8px;" />
+          WhatsApp
+        </a>
+
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    Powered by <a href="https://vhass.co.in" target="_blank" rel="noopener noreferrer">VHASS</a>
+  </footer>
+</body>
+<script>
+    // Get the floating menu and the button to toggle it
+  const floatingMenu = document.querySelector('.floating-options');
+  const mainButton = document.querySelector('.main-button');
+
+  // Toggle the menu on button click
+  mainButton.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent the click event from bubbling up
+    floatingMenu.classList.toggle('show');
+  });
+
+  // Close the menu if clicked anywhere outside of the floating menu or button
+  document.addEventListener('click', (event) => {
+    if (!floatingMenu.contains(event.target) && !mainButton.contains(event.target)) {
+      floatingMenu.classList.remove('show');
+    }
+  });
+
+  // Close the menu when scrolling
+  window.addEventListener('scroll', () => {
+    floatingMenu.classList.remove('show');
+  });
+
+  // Close the menu when any touch move event occurs
+  window.addEventListener('touchmove', () => {
+    floatingMenu.classList.remove('show');
+  });
+
+  </script>
+  
+
+</html>
