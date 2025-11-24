@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../vc/images/kabilan/icon.webp" type="image/x-icon" />
+  <title>Smak Tech Computers</title>
+  <link rel="stylesheet" href="../vc/css/kabilan/styles.css" />
+</head>
+<body>
+   <!-- Left Floating Menu (Calls) -->
+<div class="floating-menu left-menu">
+    <div class="floating-options">
+      <a href="tel:+919994898404" class="float-btn">
+        <span class="name">Kabilan</span>
+        <img src="../vc/images/kabilan/o1.webp" alt="Kabilan">
+      </a>
+    </div>
+    <button class="main-button">
+      <img src="../vc/images/kabilan/call.webp" alt="Call">
+    </button>
+  </div>
+  
+  <!-- Right Floating Menu (WhatsApp) -->
+  <div class="floating-menu right-menu">
+    <div class="floating-options">
+      <a href="https://wa.me/+919994898404" class="float-btn">
+        <span class="name">Kabilan</span>
+        <img src="../vc/images/kabilan/o1.webp" alt="WhatsApp">
+      </a>
+    </div>
+    <button class="main-button">
+      <img src="../vc/images/kabilan/whatsapp.webp" alt="WhatsApp">
+    </button>
+  </div>
+  
+  <div class="contact-container">
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <img src="../vc/images/kabilan/logo-font.webp" alt="kabilan" class="company-name-img" />
+      
+      <p class="tagline">
+        Our Services<br>
+        <span class="services">
+            Press Brake Machine(CNC,NC,Manual) | Shearing Machine(CNC,NC,Manual) | Iron Worker Machine | Bus Bar Machine | Hydraulic Press Machine | Machine Service & Maintenance | 2D/3D design | Machine Modification
+        </span>
+      </p>
+      
+      <!-- Contact Links Grid -->
+      <div class="contact-grid">
+
+        <a href="../vc/Kabilan/index.html" aria-label="Resume">
+          <img src="../vc/images/kabilan/resume.webp" alt="Resume" style="width: 30px; height: 30px; margin-right: 8px;" />
+          Resume
+        </a>
+        
+        <a href="https://www.linkedin.com/in/kabilan-chandrasekar-b0a27138/" aria-label="linkedin">
+          <img src="../vc/images/kabilan/linkedin.webp" alt="linkedin" style="width: 30px; height: 30px; margin-right: 8px;" />
+          linkedin
+        </a>
+
+        <a href="https://docs.google.com/spreadsheets/d/1HCJl4JGK5OIJMx8dfNxeshYkR8MsNppuP1VLoIgoQd8/edit?usp=sharing" aria-label="Information Sheet">
+            <img src="../vc/images/kabilan/catalog.webp" alt="Information Sheet" style="width: 30px; height: 30px; margin-right: 8px;" />
+            Information Sheet
+          </a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    Powered by <a href="https://vhass.co.in" target="_blank" rel="noopener noreferrer">VHASS</a>
+  </footer>
+</body>
+<script>
+    // Toggle menu function
+    function setupFloatingMenu(menuSelector) {
+      const menu = document.querySelector(menuSelector);
+      const options = menu.querySelector('.floating-options');
+      const button = menu.querySelector('.main-button');
+  
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        options.classList.toggle('show');
+  
+        // Close other menu
+        document.querySelectorAll('.floating-options').forEach(opt => {
+          if (opt !== options) opt.classList.remove('show');
+        });
+      });
+    }
+  
+    // Setup for both menus
+    setupFloatingMenu('.left-menu');
+    setupFloatingMenu('.right-menu');
+  
+    // Close menus on scroll or click outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.floating-options').forEach(opt => opt.classList.remove('show'));
+    });
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.floating-options').forEach(opt => opt.classList.remove('show'));
+    });
+  </script>
+  
+
+</html>
