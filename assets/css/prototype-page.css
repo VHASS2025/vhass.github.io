@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f4f6fa;            /* main page background */
+    color: #1f2937;                 /* primary text */
+    line-height: 1.7;
+}
+
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* ================= COMMON ================= */
+.proto-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 1.25rem;
+}
+
+/* ================= HERO ================= */
+.proto-hero {
+    padding: 5rem 0 4rem;
+    background: linear-gradient(180deg, #ffffff, #eef2f7);
+    text-align: center;
+}
+
+.proto-hero h1 {
+    color: #111827;
+}
+
+.proto-tag {
+    color: #2563eb;   /* tech blue */
+}
+
+.proto-intro {
+    color: #374151;
+}
+
+
+/* ================= PROTOTYPE SLIDER ================= */
+
+.proto-slider {
+    padding: 3rem 1rem;
+    background: #f4f6fb; /* NOT black */
+}
+
+.proto-slider-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.proto-slider-track {
+    display: flex;
+    transition: transform 0.6s ease;
+    will-change: transform;
+}
+
+.proto-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proto-slide img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+}
+
+/* ================= NAV BUTTONS ================= */
+
+.proto-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: #111;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.proto-nav.prev { left: 12px; }
+.proto-nav.next { right: 12px; }
+
+.proto-nav:hover {
+    background: #ffffff;
+}
+
+/* ================= MOBILE FIXES ================= */
+
+@media (max-width: 768px) {
+    .proto-slider {
+        padding: 2rem 0.5rem;
+    }
+
+    .proto-slide img {
+        max-width: 100%;
+    }
+}
+
+
+/* ================= DETAILS ================= */
+.proto-details {
+    padding: 4.5rem 0;
+    background: #ffffff;
+}
+
+.proto-details.alt {
+    background: #f0f3f9;
+}
+
+.proto-details h2 {
+    color: #111827;
+}
+
+.proto-details p {
+    color: #374151;
+}
+
+
+.proto-list {
+    margin: 1.2rem 0 1.5rem;
+    padding-left: 1.2rem;
+}
+
+.proto-list li {
+    color: #1f2937;
+}
+
+.proto-note {
+    color: #2563eb;
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    .proto-hero {
+        padding: 4rem 0 3rem;
+    }
+
+    .proto-slider {
+        padding: 2.5rem 0 3rem;
+    }
+
+    .slider-wrapper {
+        border-radius: 14px;
+    }
+}
+
+/* ================= TECHNICAL SPECS ================= */
+
+.proto-specs {
+    padding: 4.5rem 1rem;
+    background: #ffffff;
+}
+
+.proto-specs h2 {
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: #111827;
+}
+
+.specs-intro {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+.specs-table-wrapper {
+    max-width: 900px;
+    margin: auto;
+    overflow-x: auto; /* safety for very small screens */
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f9fafb;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.specs-table tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.specs-table tr:last-child {
+    border-bottom: none;
+}
+
+.specs-table th,
+.specs-table td {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.specs-table th {
+    width: 35%;
+    font-weight: 600;
+    color: #1f2937;
+    background: #eef2f7;
+}
+
+.specs-table td {
+    color: #374151;
+    background: #ffffff;
+}
+
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 640px) {
+    .specs-table th,
+    .specs-table td {
+        padding: 0.85rem 0.9rem;
+        font-size: 0.9rem;
+    }
+
+    .specs-table th {
+        width: 42%;
+    }
+}
+

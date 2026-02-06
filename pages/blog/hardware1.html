@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon" />
+    <meta name="description" content="PCB debugging techniques for industrial boards - comprehensive guide to systematic debugging approaches for industrial-grade electronics.">
+    <meta name="keywords" content="PCB debugging, hardware debugging, industrial electronics, testing, troubleshooting">
+    <meta name="author" content="VHASS Team">
+    <title>PCB Debugging Techniques for Industrial Boards - VHASS Engineering Blog</title>
+    
+    <!-- Main Styles (existing) -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/animations.css">
+    <link rel="stylesheet" href="../../assets/css/header-styles.css">
+
+    <!-- Blog Post Styles (new) -->
+    <link rel="stylesheet" href="../../assets/css/blog-post.css">
+</head>
+<body>
+    <!-- Navigation (use existing from main.css) -->
+    <header class="site-header" role="banner">
+        <div class="header-container">
+            
+            <!-- Logo & Brand -->
+            <div class="brand">
+                <a href="../../index.html" class="brand-link" aria-label="Home">
+                    <!-- Logo Image (replace with actual logo) -->
+                    <img src="../../assets/images/logo.png" alt="Company Logo" class="logo" width="40" height="40">
+                    <span class="brand-text">VERSATILE</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" 
+                    id="menuToggle" 
+                    aria-label="Toggle navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mainNav">
+                <span class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <nav class="main-nav" id="mainNav" role="navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link active" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../pages/about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../pages/service.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../pages/work.html" class="nav-link">Works</a>
+                    </li>
+                    <li class="active">
+                        <a href="../../pages/blog.html" class="nav-link">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../pages/contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>     
+
+
+    <!-- Article Container -->
+    <article class="blog-post-article">
+
+        <section class="page-header">
+    <div class="container">
+        <div class="page-header-content reveal">
+            <span class="section-label">Blog</span>
+            <h1 class="page-title">PCB Debugging Techniques for Industrial Boards</h1>
+            <span class="section-label">Hardware</span>
+            
+        </div>
+    </div>
+</section>
+
+     <div class="breadcrumb-container">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../index.html">Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="../blog.html">Blog</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">PCB Debugging Techniques</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Article Header -->
+        <header class="post-header">
+            <div class="container-article">
+                <!-- Share Buttons (Desktop) -->
+                <div class="post-share-header">
+                    <span class="share-label">Share:</span>
+                    <div class="share-buttons">
+                        <button class="share-btn share-facebook" aria-label="Share on Facebook" data-share="facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </button>
+                        <button class="share-btn share-twitter" aria-label="Share on Twitter" data-share="twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </button>
+                        <button class="share-btn share-linkedin" aria-label="Share on LinkedIn" data-share="linkedin">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </button>
+                        <button class="share-btn share-email" aria-label="Share via Email" data-share="email">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </button>
+                        <button class="share-btn share-copy" aria-label="Copy link" data-share="copy">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="copy-notification" id="copyNotification">Link copied!</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="post-featured-image">
+            <div class="container-article">
+                <figure class="featured-image-wrapper">
+                    <img src="../../assets/images/blogs/h11.webp" 
+                         alt="PCB debugging with oscilloscope and multimeter" 
+                         class="featured-image">
+                    <figcaption class="image-caption">Professional PCB debugging setup with oscilloscope</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="post-content">
+            <div class="container-article">
+                <div class="content-layout">
+                    <!-- Main Content -->
+                    <div class="content-main">
+                        <!-- Introduction -->
+                        <p class="lead-paragraph">PCB debugging is a critical skill for any hardware engineer working with industrial electronics. Whether you're troubleshooting a manufacturing defect, diagnosing a field failure, or validating a new design, systematic debugging approaches save time and prevent further damage to expensive boards.</p>
+
+                        <p>In this comprehensive guide, we'll walk through professional PCB debugging techniques used in industrial environments, covering everything from visual inspection to advanced signal analysis.</p>
+
+                        <!-- Section 1 -->
+                        <h2 id="common-issues">Common PCB Issues in Industrial Environments</h2>
+
+                        <p>Industrial PCBs face unique challenges compared to consumer electronics. Extended temperature ranges, vibration, moisture, and electromagnetic interference create failure modes you won't encounter in typical consumer devices.</p>
+
+                        <p>The most common issues we encounter include:</p>
+
+                        <ul>
+                            <li><strong>Short circuits</strong> - Often caused by solder bridges, contamination, or component failures</li>
+                            <li><strong>Open connections</strong> - Cold solder joints, cracked traces, or lifted pads</li>
+                            <li><strong>Component failures</strong> - Overstress, aging, or manufacturing defects</li>
+                            <li><strong>Signal integrity problems</strong> - Reflections, crosstalk, or timing violations</li>
+                            <li><strong>Power supply issues</strong> - Inadequate decoupling, voltage drops, or regulation failures</li>
+                        </ul>
+
+                        <!-- Callout Box -->
+                        <div class="callout callout-tip">
+                            <div class="callout-icon">💡</div>
+                            <div class="callout-content">
+                                <h4>Pro Tip</h4>
+                                <p>Always check power rails first before investigating other issues. Many mysterious failures trace back to power supply problems that cascade through the entire system.</p>
+                            </div>
+                        </div>
+
+                        <!-- Section 2 -->
+                        <h2 id="essential-tools">Essential Debugging Tools</h2>
+
+                        <p>Having the right tools makes all the difference. Here's what every industrial PCB debugging workstation should have:</p>
+
+                        <h3>1. Digital Multimeter (DMM)</h3>
+
+                        <p>Your first line of defense. A quality DMM is essential for basic continuity checks, voltage measurements, and resistance testing. For industrial work, invest in a meter with:</p>
+
+                        <ul>
+                            <li>True RMS measurement capability</li>
+                            <li>High input impedance (>10MΩ)</li>
+                            <li>CAT III or CAT IV safety rating</li>
+                            <li>0.1% accuracy or better</li>
+                        </ul>
+
+                        <!-- <figure class="content-image">
+                            <img src="../../assets/images/blog/pcb-debugging/multimeter.jpg" alt="Professional digital multimeter measuring voltage on PCB">
+                            <figcaption>Using a calibrated DMM to verify power rail voltages</figcaption>
+                        </figure> -->
+
+                        <h3>2. Oscilloscope</h3>
+
+                        <p>Critical for signal analysis and timing measurements. Modern digital oscilloscopes offer features impossible with older analog scopes:</p>
+
+                        <ul>
+                            <li>Multiple channels (4+ for industrial debugging)</li>
+                            <li>Sufficient bandwidth (100MHz minimum for most industrial applications)</li>
+                            <li>Deep memory (essential for capturing long events)</li>
+                            <li>Protocol analysis (I2C, SPI, CAN, etc.)</li>
+                            <li>Math functions and FFT analysis</li>
+                        </ul>
+
+                        <!-- <figure class="content-image content-image-wide">
+                            <img src="../../assets/images/blog/pcb-debugging/oscilloscope.jpg" alt="Oscilloscope displaying signal integrity issue">
+                            <figcaption>Oscilloscope revealing signal integrity problems on a high-speed digital bus</figcaption>
+                        </figure> -->
+
+                        <!-- Warning Callout -->
+                        <div class="callout callout-warning">
+                            <div class="callout-icon">⚠️</div>
+                            <div class="callout-content">
+                                <h4>Safety Warning</h4>
+                                <p>When working with industrial equipment, always verify that your oscilloscope and probes are rated for the voltages present in your system. Standard 10:1 probes are typically rated for 300V CAT II maximum.</p>
+                            </div>
+                        </div>
+
+                        <h3>3. Logic Analyzer</h3>
+
+                        <p>When debugging digital communication protocols or complex timing relationships, a logic analyzer is indispensable. Unlike an oscilloscope which shows analog waveforms, logic analyzers excel at:</p>
+
+                        <ul>
+                            <li>Capturing many signals simultaneously (8, 16, or more channels)</li>
+                            <li>Protocol decoding (UART, I2C, SPI, CAN, etc.)</li>
+                            <li>Timing analysis between multiple signals</li>
+                            <li>State machine debugging</li>
+                        </ul>
+
+                        <!-- Section 3 -->
+                        <h2 id="debugging-process">Systematic Debugging Process</h2>
+
+                        <p>A methodical approach prevents wasted time and reduces the risk of causing additional damage. Here's our proven step-by-step process:</p>
+
+                        <h3>Step 1: Visual Inspection</h3>
+
+                        <p>Never skip this step. Many issues are visible to the naked eye or under magnification:</p>
+
+                        <ol>
+                            <li>Check for obvious physical damage (cracks, burns, discoloration)</li>
+                            <li>Inspect solder joints under magnification for cold joints or bridges</li>
+                            <li>Look for lifted or tombstoned components</li>
+                            <li>Examine traces for breaks or damage</li>
+                            <li>Check connector pins for corrosion or damage</li>
+                        </ol>
+
+                        <h3>Step 2: Power Supply Verification</h3>
+
+                        <p>Before powering the board, verify:</p>
+
+                        <ol>
+                            <li><strong>Input voltage</strong> - Correct polarity and voltage level</li>
+                            <li><strong>Short circuits</strong> - Measure resistance between power and ground (should be >1kΩ typically)</li>
+                            <li><strong>Current limit</strong> - Set current limit on power supply to safe level (prevents damage if there's a fault)</li>
+                        </ol>
+
+                        <p>After applying power:</p>
+
+                        <ol>
+                            <li>Monitor supply current (unusual current draw indicates problems)</li>
+                            <li>Verify all voltage rails with DMM</li>
+                            <li>Check for voltage ripple with oscilloscope</li>
+                            <li>Verify power sequencing if multiple rails are present</li>
+                        </ol>
+
+                        <!-- Info Callout -->
+                        <div class="callout callout-info">
+                            <div class="callout-icon">ℹ️</div>
+                            <div class="callout-content">
+                                <h4>Quick Check</h4>
+                                <p>Touch voltage regulators lightly after 30 seconds of operation. They should be warm but not too hot to touch. Excessive heat indicates a problem.</p>
+                            </div>
+                        </div>
+
+                        <h3>Step 3: Component-Level Testing</h3>
+
+                        <p>With power verified, systematically test critical components:</p>
+
+                        <ul>
+                            <li><strong>Microcontrollers/Processors</strong> - Verify clock signals, reset behavior, and basic communication</li>
+                            <li><strong>Voltage Regulators</strong> - Check input, output, and enable signals</li>
+                            <li><strong>Communication Interfaces</strong> - Probe with oscilloscope or logic analyzer</li>
+                            <li><strong>Sensors</strong> - Verify output signals are within expected ranges</li>
+                        </ul>
+
+                        <h3>Step 4: Signal Tracing</h3>
+
+                        <p>Follow signal paths through the circuit:</p>
+
+                        <ol>
+                            <li>Start at the source (microcontroller pin, oscillator, etc.)</li>
+                            <li>Verify signal quality at each stage</li>
+                            <li>Look for signal degradation, reflections, or unexpected behavior</li>
+                            <li>Check termination resistors and series resistors</li>
+                            <li>Verify pull-up/pull-down resistors are correct values</li>
+                        </ol>
+
+                        <!-- Code Example -->
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-language">Python</span>
+                                <span class="code-title">Example: Automated Voltage Rail Test Script</span>
+                            </div>
+<pre><code>import pyvisa
+
+# Connect to multimeter
+rm = pyvisa.ResourceManager()
+dmm = rm.open_resource('USB0::0x1234::0x5678::INSTR')
+
+# Define expected voltages with tolerances
+rails = {
+    '3.3V': (3.3, 0.1),    # Expected: 3.3V ± 0.1V
+    '5V':   (5.0, 0.2),     # Expected: 5.0V ± 0.2V
+    '12V':  (12.0, 0.5)     # Expected: 12.0V ± 0.5V
+}
+
+print("Testing power rails...")
+for rail, (expected, tolerance) in rails.items():
+    voltage = float(dmm.query('MEASURE:VOLTAGE:DC?'))
+    status = "PASS" if abs(voltage - expected) <= tolerance else "FAIL"
+    print(f"{rail}: {voltage:.3f}V [{status}]")
+</code></pre>
+                        </div>
+
+                        <!-- Section 4 -->
+                        <h2 id="case-study">Real-World Case Study</h2>
+
+                        <p>Let's examine a real debugging scenario from our recent industrial automation project:</p>
+
+                        <h3>The Problem</h3>
+
+                        <p>A batch of motor controller boards exhibited intermittent communication failures after 24-48 hours of operation. The boards would stop responding to CAN bus commands, requiring a power cycle to restore function.</p>
+
+                        <h3>Initial Investigation</h3>
+
+                        <p>Visual inspection revealed no obvious issues. Power supply measurements were within spec. The problem only occurred after extended operation, suggesting a thermal or timing-related issue.</p>
+
+                        <h3>The Discovery</h3>
+
+                        <p>Using a logic analyzer to capture CAN bus traffic over several hours, we noticed occasional bit errors appearing after approximately 36 hours of continuous operation. The errors correlated with thermal cycling as the board warmed up and cooled down.</p>
+
+                        <h3>Root Cause</h3>
+
+                        <p>Further investigation revealed that the CAN transceiver's termination resistor (120Ω) had the wrong temperature coefficient. As the board temperature fluctuated, the resistance value changed enough to cause impedance mismatches and bit errors.</p>
+
+                        <h3>The Fix</h3>
+
+                        <p>Replacing the standard thick-film resistor with a precision metal-film resistor with low temperature coefficient resolved the issue completely.</p>
+
+                        <div class="callout callout-success">
+                            <div class="callout-icon">✓</div>
+                            <div class="callout-content">
+                                <h4>Lesson Learned</h4>
+                                <p>In industrial applications, component tolerance and temperature stability matter more than in consumer electronics. Always specify precision components for critical signal paths.</p>
+                            </div>
+                        </div>
+
+                        <!-- Section 5 -->
+                        <h2 id="best-practices">Best Practices & Tips</h2>
+
+                        <p>After years of debugging industrial PCBs, here are our most valuable lessons:</p>
+
+                        <ol>
+                            <li><strong>Document everything</strong> - Take photos, write notes, save scope screenshots. Future-you will thank present-you.</li>
+                            <li><strong>Change one thing at a time</strong> - Resist the temptation to modify multiple things simultaneously.</li>
+                            <li><strong>Keep a lab notebook</strong> - Track what you've tested, what worked, and what didn't.</li>
+                            <li><strong>Use the schematic</strong> - Don't rely on memory. Always refer to the actual schematic.</li>
+                            <li><strong>Verify assumptions</strong> - Just because the datasheet says something doesn't mean it's true for your specific part or board.</li>
+                            <li><strong>Consider environmental factors</strong> - Temperature, humidity, vibration, and EMI all affect circuit behavior.</li>
+                            <li><strong>Know when to ask for help</strong> - Fresh eyes often spot issues you've been staring at for hours.</li>
+                        </ol>
+
+                        <!-- Section 6 -->
+                        <h2 id="conclusion">Conclusion</h2>
+
+                        <p>Systematic PCB debugging is both an art and a science. While experience and intuition play a role, following a methodical approach consistently yields better results than random probing.</p>
+
+                        <p>Start with visual inspection, verify power supplies, test critical components, and trace signals systematically. Use the right tools for the job, document your findings, and don't skip steps even when you're confident you know the problem.</p>
+
+                        <p>Most importantly, remember that every debugging session is a learning opportunity. The patterns you discover while troubleshooting one board will help you design better boards in the future.</p>
+
+                        <!-- Tags -->
+                        <div class="post-tags">
+                            <span class="tags-label">Tags:</span>
+                            <a href="#" class="tag">PCB Design</a>
+                            <a href="#" class="tag">Debugging</a>
+                            <a href="#" class="tag">Hardware</a>
+                            <a href="#" class="tag">Testing</a>
+                            <a href="#" class="tag">Industrial</a>
+                        </div>
+
+                        <!-- Share Section (Bottom) -->
+                        <div class="post-share-bottom">
+                            <h3>Share this article</h3>
+                            <div class="share-buttons">
+                                <button class="share-btn share-facebook" aria-label="Share on Facebook" data-share="facebook">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                    <span>Facebook</span>
+                                </button>
+                                <button class="share-btn share-twitter" aria-label="Share on Twitter" data-share="twitter">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                                    <span>Twitter</span>
+                                </button>
+                                <button class="share-btn share-linkedin" aria-label="Share on LinkedIn" data-share="linkedin">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                    <span>LinkedIn</span>
+                                </button>
+                                <button class="share-btn share-email" aria-label="Share via Email" data-share="email">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    <span>Email</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="content-sidebar">
+                        <!-- Table of Contents -->
+                        <div class="sidebar-section toc-section">
+                            <h3 class="sidebar-heading">Table of Contents</h3>
+                            <nav class="table-of-contents" id="tableOfContents">
+                                <a href="#common-issues" class="toc-link">Common PCB Issues</a>
+                                <a href="#essential-tools" class="toc-link">Essential Debugging Tools</a>
+                                <a href="#debugging-process" class="toc-link">Systematic Process</a>
+                                <a href="#case-study" class="toc-link">Real-World Case Study</a>
+                                <a href="#best-practices" class="toc-link">Best Practices</a>
+                                <a href="#conclusion" class="toc-link">Conclusion</a>
+                            </nav>
+                        </div>
+
+                        <!-- Related Articles -->
+                        <!-- <div class="sidebar-section">
+                            <h3 class="sidebar-heading">Related Articles</h3>
+                            <div class="related-posts-sidebar">
+                                <a href="power-circuit-design.html" class="related-post-card">
+                                    <img src="../../assets/images/blog/power-circuits.jpg" alt="Power Circuit Design" class="related-post-img">
+                                    <div class="related-post-content">
+                                        <h4 class="related-post-title">Designing Reliable Power Circuits</h4>
+                                        <span class="related-post-meta">10 min read</span>
+                                    </div>
+                                </a>
+                                <a href="industrial-pcb-layout.html" class="related-post-card">
+                                    <img src="../../assets/images/blog/pcb-layout.jpg" alt="PCB Layout" class="related-post-img">
+                                    <div class="related-post-content">
+                                        <h4 class="related-post-title">Industrial PCB Layout Best Practices</h4>
+                                        <span class="related-post-meta">9 min read</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+
+                        <!-- Newsletter -->
+                        <!-- <div class="sidebar-section newsletter-section">
+                            <h3 class="sidebar-heading">Stay Updated</h3>
+                            <p class="newsletter-text">Get the latest technical articles and engineering insights delivered to your inbox.</p>
+                            <form class="newsletter-form" id="newsletterForm">
+                                <input type="email" 
+                                       class="newsletter-input" 
+                                       placeholder="Enter your email" 
+                                       required
+                                       aria-label="Email address">
+                                <button type="submit" class="newsletter-btn">Subscribe</button>
+                            </form>
+                            <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
+                        </div> -->
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Posts Section -->
+        <!-- <section class="related-posts-section">
+            <div class="container">
+                <h2 class="section-heading">Related Articles</h2>
+                <div class="related-posts-grid"> -->
+                    <!-- Related Post 1 -->
+                    <!-- <article class="related-post">
+                        <a href="esp32-vs-stm32.html" class="related-post-link">
+                            <div class="related-post-image">
+                                <img src="../../assets/images/blog/esp32-stm32.jpg" alt="ESP32 vs STM32">
+                            </div>
+                            <div class="related-post-body">
+                                <span class="related-post-category">Embedded</span>
+                                <h3 class="related-post-title">ESP32 vs STM32: Platform Comparison</h3>
+                                <p class="related-post-excerpt">Detailed comparison of ESP32 and STM32 for IoT applications...</p>
+                                <span class="related-post-readtime">12 min read</span>
+                            </div>
+                        </a>
+                    </article> -->
+
+                    <!-- Related Post 2 -->
+                    <!-- <article class="related-post">
+                        <a href="power-circuit-design.html" class="related-post-link">
+                            <div class="related-post-image">
+                                <img src="../../assets/images/blog/power-circuits.jpg" alt="Power Circuit Design">
+                            </div>
+                            <div class="related-post-body">
+                                <span class="related-post-category">Hardware</span>
+                                <h3 class="related-post-title">Designing Reliable Power Circuits</h3>
+                                <p class="related-post-excerpt">Best practices for power supply design in industrial systems...</p>
+                                <span class="related-post-readtime">10 min read</span>
+                            </div>
+                        </a>
+                    </article> -->
+
+                    <!-- Related Post 3 -->
+                    <!-- <article class="related-post">
+                        <a href="industrial-pcb-layout.html" class="related-post-link">
+                            <div class="related-post-image">
+                                <img src="../../assets/images/blog/pcb-layout.jpg" alt="PCB Layout">
+                            </div>
+                            <div class="related-post-body">
+                                <span class="related-post-category">Hardware</span>
+                                <h3 class="related-post-title">Industrial PCB Layout Best Practices</h3>
+                                <p class="related-post-excerpt">Professional layout techniques for harsh industrial environments...</p>
+                                <span class="related-post-readtime">9 min read</span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section> -->
+    </article>
+
+<!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2 class="cta-title">Engineering the Future, Together</h2>
+                <p class="cta-text">Let's discuss how VHASS can help transform your technology challenges into innovative solutions.</p>
+                <div class="cta-buttons">
+                    <a href="../../reachus.html" class="btn btn-primary btn-large">Reach Us Page</a>
+                    <a href="https://wa.me/+919655536289" class="btn btn-whatsapp btn-large" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp Enquiry
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="../../assets/images/logo.png" alt="VHASS Logo" class="footer-logo">
+                    <h3 class="footer-brand-name">VHASS</h3>
+                    <p class="footer-tagline">Versatile Hardware and Software Solutions</p>
+                    <p class="footer-description">Technology-driven B2B engineering, hardware, software, and product development solutions.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-list">
+                        <li><a href="../../pages/about.html">About Us</a></li>
+                        <li><a href="../../pages/team.html">Our Team</a></li>
+                        <li><a href="../../pages/testimonials.html">Testimonials</a></li>
+                        <li><a href="../../pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-list">
+                        <li><a href="../../pages/services/hardware-design.html">Hardware Design & Development</a></li>
+                        <li><a href="../../pages/services/software-design.html">Software Design & Development</a></li>
+                        <li><a href="../../pages/services/pcb-design.html">PCB Design & Manufacturing</a></li>
+                        <li><a href="../../pages/services/automation.html">Automation Solutions</a></li>
+                        <li><a href="../../pages/service.html">View All Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-list">
+                        <li><a href="../../pages/work.html">Works</a></li>
+                        <li><a href="../../pages/gallery.html">Gallery</a></li>
+                        <li><a href="../../pages/blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <!-- <a href="#" class="social-link" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a> -->
+                    <a href="https://youtube.com/@vhass-2025?si=aFoWFPXW98cF11Yq" class="social-link" aria-label="YouTube"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+                </div>
+                <p class="footer-copyright">&copy; 2026 VHASS - Versatile Hardware and Software Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/+919655536289" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/animations.js"></script>
+    <script src="../../assets/js/header-script.js"></script>
+    <script src="../../assets/js/blog-post.js"></script>
+</body>
+</html>

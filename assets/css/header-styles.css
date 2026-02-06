@@ -1,0 +1,430 @@
+/* ============================================
+   RESPONSIVE HEADER - COMPLETE CSS
+   Custom Font, Flexbox Layout, Mobile Menu
+   ============================================ */
+
+/* ============================================
+   CUSTOM FONT LOADING
+   ============================================ */
+@font-face {
+    font-family: 'CustomBrand';
+    src: url('../fonts/VHASS-Font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Prevents invisible text during load */
+}
+
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
+:root {
+    /* Colors */
+    --color-primary: #2563eb;
+    --color-primary-dark: #1e40af;
+    --color-text: #1f2937;
+    --color-white: #ffffff;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-800: #1f2937;
+    
+    /* Spacing */
+    --header-height: 70px;
+    --container-padding: 1.5rem;
+    
+    /* Transitions */
+    --transition-speed: 300ms;
+    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   HEADER STYLES
+   ============================================ */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: var(--header-height);
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* ============================================
+   BRAND / LOGO SECTION
+   ============================================ */
+.brand {
+    display: flex;
+    align-items: center;
+    z-index: 1001; /* Above mobile menu */
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: opacity var(--transition-speed) var(--transition-timing);
+}
+
+.brand-link:hover {
+    opacity: 0.8;
+}
+
+.brand-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    /* Placeholder background for demo */
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border-radius: 4px;
+}
+
+.brand-text {
+    font-family: 'CustomBrand', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+}
+
+/* ============================================
+   NAVIGATION - DESKTOP
+   ============================================ */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.625rem 1rem;
+    color: var(--color-text);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all var(--transition-speed) var(--transition-timing);
+    position: relative;
+}
+
+/* Hover State */
+.nav-link:hover {
+    color: var(--color-primary);
+    background-color: var(--color-gray-100);
+}
+
+/* Active State */
+.nav-link.active {
+    color: var(--color-primary);
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* Focus State for Accessibility */
+.nav-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Optional: Underline animation on hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0.25rem;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transition: transform var(--transition-speed) var(--transition-timing);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* ============================================
+   MOBILE MENU TOGGLE BUTTON
+   ============================================ */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001; /* Above mobile menu */
+    width: 44px; /* Minimum touch target size */
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: background-color var(--transition-speed) var(--transition-timing);
+}
+
+.menu-toggle:hover {
+    background-color: var(--color-gray-100);
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 24px;
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition: all var(--transition-speed) var(--transition-timing);
+}
+
+/* Hamburger Animation - Active State */
+.menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE STYLES
+   ============================================ */
+@media (max-width: 768px) {
+    
+    /* Show mobile menu toggle */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Mobile Navigation */
+    .main-nav {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-white);
+        padding: 2rem var(--container-padding);
+        
+        /* Hidden by default */
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+        
+        /* Smooth transition */
+        transition: transform var(--transition-speed) var(--transition-timing),
+                    opacity var(--transition-speed) var(--transition-timing),
+                    visibility var(--transition-speed) var(--transition-timing);
+        
+        /* Add subtle shadow */
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Mobile Navigation - Active State */
+    .main-nav.active {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Mobile Nav List */
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    /* Mobile Nav Links */
+    .nav-link {
+        padding: 1rem 1.25rem;
+        font-size: 1.125rem;
+        border-left: 3px solid transparent;
+        border-radius: 0;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        border-left-color: var(--color-primary);
+        background-color: var(--color-gray-100);
+    }
+    
+    .nav-link::after {
+        display: none; /* Remove underline on mobile */
+    }
+    
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* ============================================
+   TABLET STYLES
+   ============================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-list {
+        gap: 0.25rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* ============================================
+   DEMO CONTENT STYLES (FOR DEMONSTRATION)
+   ============================================ */
+.demo-content {
+    margin-top: var(--header-height);
+    padding: 3rem var(--container-padding);
+    min-height: 100vh;
+}
+
+.demo-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.demo-content h1 {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.demo-content p {
+    margin-bottom: 1rem;
+    color: var(--color-gray-800);
+    font-size: 1.125rem;
+}
+
+.demo-box {
+    background-color: var(--color-gray-100);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+.demo-box h2 {
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.demo-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.demo-box li {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: var(--color-gray-800);
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* Skip to main content link (optional) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .site-header {
+        border-bottom: 2px solid var(--color-text);
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        outline: 2px solid currentColor;
+    }
+}
