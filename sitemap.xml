@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Home -->
+   <url>
+  <loc>https://vhass.co.in/</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/index.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/about.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/service.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/work.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/blog.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/contact.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/hardware-design.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/software-design.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/pcb-design.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/electrical-design.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/automation.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/cad-design.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/works/product1.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/works/prototype1.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/works/project1.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/reachus.html</loc>
+  <lastmod>2026-02-06T13:13:33+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/team.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/testimonials.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/gallery.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/pcb-debugging.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/computing-services.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/web-development.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/product-development.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/services/business-consulting.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/blog/hardware1.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/blog/software1.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://vhass.co.in/pages/blog/embedded1.html</loc>
+  <lastmod>2026-02-06T13:13:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
