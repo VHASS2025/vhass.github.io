@@ -1,6 +1,7 @@
 https://vhass.co.in/
 https://vhass.co.in/index.html
-https://vhass.co.in/services.html
-https://vhass.co.in/projects.html
-https://vhass.co.in/about.html
-https://vhass.co.in/contact.html
+https://vhass.co.in/pages/service.html
+https://vhass.co.in/pages/work.html
+https://vhass.co.in/pages/blog.html
+https://vhass.co.in/pages/contact.html
+https://vhass.co.in/pages/about.html
