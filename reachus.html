@@ -669,7 +669,7 @@ body::before {
                 'youtube': 'https://youtube.com/@vhass-2025?si=aFoWFPXW98cF11Yq',
                 'linkedin': 'https://www.linkedin.com/company/yourcompany',
                 'pinterest': 'https://www.pinterest.com/yourcompany',
-                'email': 'mailto:yourmail@gmail.com'
+                'email': 'mailto:versatileversatileelectronicsrmd@gmail.com'
             };
             
             if (urls[platform]) {
@@ -678,8 +678,39 @@ body::before {
         }
 
         function saveToContacts() {
-            alert('Save to Contacts functionality ready. You can add vCard generation here.');
-        }
+    // Example contact data
+    const contact = {
+        fullName: "Raja Chandrasekar",
+        email: "versatileversatileelectronicsrmd@gmail.com",
+        phone: "+9655536289",
+        organization: "VHASS",
+        title: "CEO&FOUNDER",
+        address: "Ramnanthapuram-Tamilnadu"
+    };
+
+    // Generate vCard content
+    const vCard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${contact.fullName}
+ORG:${contact.organization}
+TITLE:${contact.title}
+TEL;TYPE=WORK,VOICE:${contact.phone}
+EMAIL:${contact.email}
+ADR;TYPE=WORK:;;${contact.address}
+END:VCARD
+    `;
+
+    // Create a downloadable file
+    const blob = new Blob([vCard.trim()], { type: "text/vcard" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `${contact.fullName.replace(/\s+/g, "_")}.vcf`;
+    link.click();
+
+    alert('Contact saved! vCard downloaded.');
+}
+
 
         function shareProfile() {
             if (navigator.share) {
