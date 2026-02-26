@@ -246,6 +246,17 @@ body::before {
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(255, 59, 59, 0.5);
         }
+        
+        .btn-location {
+            background: #25d366;
+            color: white;
+        }
+        
+        .btn-location:hover {
+            background: #1fbd58;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+        }
 
         .content-section {
             padding: 25px 20px;
@@ -402,6 +413,10 @@ body::before {
 
         .pinterest { 
             background: linear-gradient(135deg, #e60023 0%, #bd001c 100%);
+        }
+
+        .review { 
+            background: linear-gradient(135deg, #f7b500 0%, #ff8c00 100%);
         }
 
         .email {
@@ -569,7 +584,8 @@ body::before {
             <div class="action-buttons">
                 <button class="btn btn-call" onclick="handleCall()">Call</button>
                 <button class="btn btn-whatsapp" onclick="handleWhatsApp()">WhatsApp</button>
-                <button class="btn btn-site" onclick="handleWebsite()">Site</button>
+                <button class="btn btn-site" onclick="handleWebsite()">Website</button>
+                <button class="btn btn-location" onclick="handleLocation()">Location</button>
             </div>
         </div>
 
@@ -617,6 +633,13 @@ body::before {
                         <span class="btn-text">Gmail</span>
                     </button>
 
+                    <button class="social-btn review" onclick="shareOnPlatform('review')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                        <span class="btn-text">Review</span>
+                    </button>
+
                     <!-- <button class="social-btn linkedin" onclick="shareOnPlatform('linkedin')">
                         <span class="btn-icon">in</span>
                         <span class="btn-text">LinkedIn</span>
@@ -653,12 +676,16 @@ body::before {
             window.open('https://vhass.co.in', '_blank');
         }
 
+        function handleLocation() {
+            window.open('https://maps.app.goo.gl/D1xs7fszcjfJ14Su5', '_blank');
+        }
+
         function handleEmail() {
             window.location.href = 'mailto:yourmail@gmail.com';
         }
 
         function handleAddress() {
-            window.open('https://maps.google.com/?q=Your+Address', '_blank');
+            window.open('https://maps.app.goo.gl/D1xs7fszcjfJ14Su5', '_blank');
         }
 
         function shareOnPlatform(platform) {
@@ -669,7 +696,8 @@ body::before {
                 'youtube': 'https://youtube.com/@vhass-2025?si=aFoWFPXW98cF11Yq',
                 'linkedin': 'https://www.linkedin.com/company/yourcompany',
                 'pinterest': 'https://www.pinterest.com/yourcompany',
-                'email': 'mailto:versatileversatileelectronicsrmd@gmail.com'
+                'email': 'mailto:versatileversatileelectronicsrmd@gmail.com',
+                'review': 'https://g.page/r/CXL8hOzVju_kEBI/review'
             };
             
             if (urls[platform]) {

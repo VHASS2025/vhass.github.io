@@ -1,225 +1,430 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: black;
-    overflow: hidden;
-  }
-  
-/* Ensure Fullscreen Fit */
-.contact-container {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #060d1a;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Nunito', sans-serif;
+  padding: 20px 0 40px;
+}
+
+/* ===== CARD WRAPPER ===== */
+.card-wrapper {
+  position: relative;
+  width: 360px;
+  max-width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 28px 22px 0;
+  background: #0a1628;
+  box-shadow: 0 0 60px rgba(0, 220, 220, 0.12), 0 20px 60px rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,220,220,0.15);
+}
+
+/* ===== BACKGROUND IMAGE ===== */
+.bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(6, 13, 30, 0.88) 0%,
+    rgba(8, 20, 45, 0.92) 50%,
+    rgba(4, 10, 22, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+/* All content above background */
+.card-wrapper > *:not(.bg-image):not(.bg-overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== HEADER ===== */
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.company-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(0,220,200,0.4);
+}
+
+.header-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00dcc8, transparent);
+  margin: 8px auto 0;
+}
+
+/* ===== PROFILE - CENTERED ===== */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 18px 16px;
+  background: rgba(0,220,200,0.06);
+  border-radius: 16px;
+  border: 1px solid rgba(0,220,200,0.15);
+}
+
+.logo-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00dcc8, #0097a7);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 0;
-  background: black; /* Fallback color */
+  border: 3px solid #00dcc8;
+  box-shadow: 0 0 22px rgba(0,220,200,0.55);
+  margin-bottom: 4px;
 }
 
-/* Animated Dark Gradient Background */
-.animated-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('../../images/zeenath-telecom/bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(8px);
-  z-index: -2;
-}
-
-/* Optional overlay for better contrast */
-.animated-background::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.logo-img {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* dark overlay */
-  z-index: -1;
+  object-fit: cover;
 }
 
-/* Main Content */
-.content {
-  position: relative;
-  text-align: center;
-  color: white;
-  z-index: 1;
-  max-width: 700px;
-  width: 90%;
-  padding: 20px;
-  border-radius: 12px;
-}
-
-/* Company Logo */
-.logo {
-  width: 180px;
-  height: 180px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-
-.company-name-img {
-  display: block;
-  margin: 20px auto;
-  max-width: 90%;
-  height: auto;
-}
-
-.tagline {
-  text-align: center;
+.logo-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
   color: #fff;
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1.1rem;
-  margin-top: 10px;
-  line-height: 1.5;
+  letter-spacing: 1px;
 }
 
-.services {
-  font-size: 0.95rem;
-  color: #ccc;
-  word-spacing: 2px;
+.person-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
-/* Contact Grid */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 500px;
-  margin: auto;
+.star {
+  color: #00dcc8;
+  font-size: 14px;
 }
 
-/* Contact Links with Icons */
-.contact-grid a {
-  font-size: 22px;
+/* ===== SERVICE TAGS ===== */
+.services-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.tag.highlight {
+  background: linear-gradient(135deg, #00dcc8, #0097a7);
+  color: #060d1a;
+}
+
+.tag.accent {
+  background: rgba(255,200,0,0.15);
+  border: 1px solid rgba(255,200,0,0.5);
+  color: #ffd700;
+}
+
+/* ===== SERVICE LIST ===== */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #b8d8e0;
+  background: rgba(0,220,200,0.05);
+  border: 1px solid rgba(0,220,200,0.12);
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+.service-item i {
+  color: #00dcc8;
+  font-size: 11px;
+  min-width: 14px;
+}
+
+/* ===== CONTACT DETAILS ===== */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0,220,200,0.08);
+  border: 1px solid rgba(0,220,200,0.2);
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: all 0.3s ease;
+}
+
+.contact-row:hover {
+  background: rgba(0,220,200,0.14);
+  border-color: rgba(0,220,200,0.4);
+  transform: translateX(2px);
+}
+
+.contact-icon-wrap {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: rgba(0,220,200,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00dcc8;
+  font-size: 14px;
+}
+
+.contact-icon-wrap.wa {
+  background: rgba(37,211,102,0.15);
+  color: #25d366;
+}
+
+.contact-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.contact-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #00dcc8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.contact-value {
+  font-size: 13px;
+  color: #cce8ef;
+}
+
+.whatsapp-row .contact-label {
+  color: #25d366;
+}
+
+.contact-action {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0,220,200,0.12);
+  border: 1px solid rgba(0,220,200,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00dcc8;
+  font-size: 12px;
   text-decoration: none;
-  color: white;
-  background: rgba(37, 146, 204, 1);
-  padding: 15px;
+  transition: all 0.3s;
+}
+
+.contact-action:hover {
+  background: #00dcc8;
+  color: #060d1a;
+}
+
+.wa-action {
+  background: rgba(37,211,102,0.12);
+  border-color: rgba(37,211,102,0.25);
+  color: #25d366;
+}
+
+.wa-action:hover {
+  background: #25d366;
+  color: #fff;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.8px;
+  transition: all 0.3s ease;
+}
+
+.location-btn {
+  background: linear-gradient(135deg, #00dcc8, #0097a7);
+  color: #060d1a;
+  box-shadow: 0 4px 15px rgba(0,220,200,0.3);
+}
+
+.location-btn:hover {
+  box-shadow: 0 6px 25px rgba(0,220,200,0.5);
+  transform: translateY(-2px);
+}
+
+.review-btn {
+  background: linear-gradient(135deg, #4285F4, #34A853);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(66,133,244,0.3);
+}
+
+.review-btn:hover {
+  box-shadow: 0 6px 25px rgba(66,133,244,0.5);
+  transform: translateY(-2px);
+}
+
+/* ===== SHARE BUTTON ===== */
+.share-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+}
+
+.share-btn:hover {
+  box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+  transform: translateY(-2px);
+}
+
+/* ===== SOCIAL ICONS ===== */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  transition: transform 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s ease;
 }
 
-/* Icons inside links */
-.icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 8px;
-  vertical-align: middle;
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* Hover Effect */
-.contact-grid a:hover {
-  background: rgba(242, 99, 41, 1);
-  transform: scale(1.1);
-}
+.facebook  { background: #1877F2; }
+.youtube   { background: #FF0000; }
+.twitter   { background: #000000; border: 1px solid #333; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.linkedin  { background: #0A66C2; }
+.pinterest { background: #E60023; }
 
-/* Responsive Design */
-@media (max-width: 768px) { /* Tablets */
-  .content {
-    max-width: 90%;
-  }
-  .logo {
-    width: 140px;
-    height: 140px;
-  }
-  .company-name {
-    font-size: 1.8rem;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) { /* Mobile */
-  .company-name {
-    font-size: 1.5rem;
-  }
-  .logo {
-    width: 120px;
-    height: 120px;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-  .contact-grid a {
-    font-size: 20px;
-    padding: 12px;
-  }
-}
-
-/* Base footer styles */
-.footer {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
+/* ===== FOOTER ===== */
+.card-footer {
+  background: rgba(0,0,0,0.35);
+  border-top: 1px solid rgba(0,220,200,0.1);
   text-align: center;
-  font-family: 'Fredoka', sans-serif;
-  color: #ffffff;
-  font-size: 0.9rem;
-  z-index: 1;
+  padding: 12px;
+  margin: 0 -22px;
+  font-size: 12px;
+  color: #6a8fa0;
 }
 
-/* Normal state of footer links */
-.footer a {
-  color: #ffffff; /* Default text color */
-  text-decoration: none; /* No underline by default */
-  position: relative;
-  transition: color 0.3s ease, transform 0.3s ease;
+.powered-link {
+  color: #00dcc8;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s;
 }
 
-/* Hover state for footer links */
-.footer a:hover {
-  color: #00a6ff; /* Change to bright blue on hover */
-  text-decoration: underline;
-  transform: scale(1.1); /* Slight zoom effect */
+.powered-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,220,200,0.6);
 }
 
-/* Animated flashing effect for mobile view */
-@keyframes flash {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
-}
-
-/* Mobile-specific styles */
-@media (max-width: 767px) {
-  .footer a {
-    animation: flash 1s infinite; /* Flashing animation every 1 second */
+/* ===== RESPONSIVE ===== */
+@media (max-width: 400px) {
+  .card-wrapper {
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+  body {
+    padding: 0;
   }
 }
-
-.footer a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #ffffff; /* Color of the underline */
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.footer a:hover::after {
-  transform: scaleX(1); /* Show underline on hover */
-}
-
