@@ -1517,3 +1517,26 @@ ul, ol {
         display: none;
     }
 }
+
+/* Google iframe */
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 15px; /* Rounded corners */
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-container {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
