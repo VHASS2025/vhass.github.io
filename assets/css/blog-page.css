@@ -208,6 +208,11 @@
     color: #92400e;
 }
 
+.blog-badge-financial {
+    background-color: #f3a4ab;
+    color: #a21521;
+}
+
 .blog-title {
     font-size: 1.125rem;
     font-weight: 700;
